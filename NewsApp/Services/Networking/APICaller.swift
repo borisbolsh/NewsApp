@@ -13,14 +13,16 @@ final class APICaller {
     
     private init() {}
     
-    struct Constants {
+    private struct Constants {
         static let apiKey = "61abbfc82cd54f868bd043915601fbfd"
         static let baseUrl = "https://newsapi.org/v2/"
+        
+        static let secondsInADay: Double = 3600 * 24
     }
     
-    private enum Endpoint: String {
-        case everything
-        case topHeadlines = "top-headlines"
+    enum Endpoint: String {
+        case search = "everything"
+        case topNews = "top-headlines"
     }
     
     private enum APIError: Error {
@@ -82,66 +84,44 @@ final class APICaller {
         task.resume()
     }
     
-    
-//    public func search(
-//        query: String,
-//        completion: @escaping (Result<SearchResponse, Error>) -> Void
-//    ) {
-//        guard let safeQuery = query.addingPercentEncoding(
-//            withAllowedCharacters: .urlQueryAllowed
-//        ) else {
-//            return
-//        }
-//
-//        request(
-//            url: url(
-//                for: .everything,
-//                   queryParams: ["q": safeQuery]
-//            ),
-//            expecting: SearchResponse.self,
-//            completion: completion
-//        )
-//    }
-    
-    
-//    func news(
-//        for type: NewsViewController.`Type`,
-//        completion: @escaping (Result<SearchResponse, Error>) -> Void
-//    ) {
-//        switch type {
-//        case .topStories:
-//            let today = Date()
-//            let oneMonthBack = today.addingTimeInterval(-(Constants.secondsInADay * 30))
-//            request(
-//                url: url(
-//                    for: .topHeadlines,
-//                       queryParams: [
-//                        "category" : "general",
-//                        "country" : "us",
-//                        "pageSize" : "100",
-//                        "sortBy": "publishedAt",
-//                        "from" : DateFormatter.newsDateFormatter.string(from: oneMonthBack),
-//                        "to": DateFormatter.newsDateFormatter.string(from: today)
-//                       ]),
-//                expecting: SearchResponse.self,
-//                completion: completion
-//            )
-//        case .topNews:
-//            request(
-//                url: url(
-//                    for: .topHeadlines,
-//                       queryParams: [
-//                        "category" : "general",
-//                        "country" : "us",
-//                        "pageSize" : "50",
-//                        "sortBy": "popularity"
-//                       ]),
-//                expecting: SearchResponse.self,
-//                completion: completion
-//            )
-//        }
-//        print(url)
-//    }
+    func news(
+        for type: Endpoint,
+        completion: @escaping (Result<SearchResponse, Error>) -> Void
+    ) {
+        switch type {
+        case .search:
+            let today = Date()
+            let oneMonthBack = today.addingTimeInterval(-(Constants.secondsInADay * 30))
+            request(
+                url: url(
+                    for: .search,
+                       queryParams: [
+                        "category" : "general",
+                        "country" : "us",
+                        "pageSize" : "100",
+                        "sortBy": "publishedAt",
+                        "from" : DateFormatter.newsDateFormatter.string(from: oneMonthBack),
+                        "to": DateFormatter.newsDateFormatter.string(from: today)
+                       ]),
+                expecting: SearchResponse.self,
+                completion: completion
+            )
+        case .topNews:
+            request(
+                url: url(
+                    for: .topNews,
+                       queryParams: [
+                        "category" : "general",
+                        "country" : "us",
+                        "pageSize" : "50",
+                        "sortBy": "popularity"
+                       ]),
+                expecting: SearchResponse.self,
+                completion: completion
+            )
+        }
+        print(url)
+    }
     
     
     

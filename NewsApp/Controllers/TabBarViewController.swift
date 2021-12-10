@@ -13,28 +13,40 @@ class TabBarViewController: UITabBarController {
 
         super.viewDidLoad()
 
-        let vc1 = HomeViewController()
-        let vc2 = SettingsViewController()
-
-        vc1.title = "Home"
-        vc2.title = "Settings"
-
-        vc1.navigationItem.largeTitleDisplayMode = .always
-        vc2.navigationItem.largeTitleDisplayMode = .always
-
-        let nav1 = UINavigationController(rootViewController: vc1)
-        let nav2 = UINavigationController(rootViewController: vc2)
-
-        nav1.navigationBar.tintColor = .label
-        nav2.navigationBar.tintColor = .label
- 
-        nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
-        nav2.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
-
-        nav1.navigationBar.prefersLargeTitles = true
-        nav2.navigationBar.prefersLargeTitles = true
-
-        setViewControllers([nav1, nav2], animated: false)
+        let viewController1 = HomeViewController()
+        let viewController2 = TopNewsViewController()
+        let viewController3 = SettingsViewController()
+        
+        viewController1.title = "Home"
+        viewController2.title = "Top News"
+        viewController3.title = "Settings"
+        
+        viewController1.navigationItem.largeTitleDisplayMode = .always
+        viewController2.navigationItem.largeTitleDisplayMode = .always
+        viewController3.navigationItem.largeTitleDisplayMode = .always
+        
+        let navigationController1 = UINavigationController(rootViewController: viewController1)
+        let navigationController2 = UINavigationController(rootViewController: viewController2)
+        let navigationController3 = UINavigationController(rootViewController: viewController3)
+        
+        navigationController1.navigationBar.tintColor = .label
+        navigationController2.navigationBar.tintColor = .label
+        navigationController3.navigationBar.tintColor = .label
+        
+        navigationController1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 0)
+        navigationController2.tabBarItem = UITabBarItem(title: "Top News", image: UIImage(systemName: "star"), tag: 1)
+        navigationController3.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
+        
+        navigationController1.navigationBar.prefersLargeTitles = true
+        navigationController2.navigationBar.prefersLargeTitles = true
+        navigationController3.navigationBar.prefersLargeTitles = true
+        
+        setViewControllers([
+            navigationController1,
+            navigationController2,
+            navigationController3
+        ], animated: false)
+        
     }
     
 

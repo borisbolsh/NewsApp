@@ -24,6 +24,7 @@ struct Article: Codable {
         case articleDescription = "description"
         case url, urlToImage, publishedAt, content
     }
+    
 }
 
 struct Source: Codable {
