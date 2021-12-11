@@ -20,6 +20,8 @@
 		452C4E3D27638C20007E69CD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E3C27638C20007E69CD /* UIView+Ext.swift */; };
 		452C4E3F27639012007E69CD /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E3E27639012007E69CD /* UIImageView+Ext.swift */; };
 		452C4E4127639140007E69CD /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E4027639140007E69CD /* DateFormatter+Ext.swift */; };
+		45A79C092764EBFF00303D64 /* MainNewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */; };
+		45A79C0B2764ED0300303D64 /* MainNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */; };
 		45D86CD427634E3100D92E9B /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D86CD327634E3100D92E9B /* SearchResponse.swift */; };
 		45D86CD7276350D700D92E9B /* TopNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D86CD6276350D700D92E9B /* TopNewsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		452C4E3C27638C20007E69CD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		452C4E3E27639012007E69CD /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		452C4E4027639140007E69CD /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
+		45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsCellViewModel.swift; sourceTree = "<group>"; };
+		45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		45D86CD327634E3100D92E9B /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		45D86CD6276350D700D92E9B /* TopNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,7 @@
 				4502278F27629DAA00A1E75C /* Controllers */,
 				450227902762A0B100A1E75C /* Models */,
 				4502278527629B9A00A1E75C /* Info.plist */,
+				45A79C072764EBC300303D64 /* ViewModels */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -151,8 +156,17 @@
 			isa = PBXGroup;
 			children = (
 				452C4E3A27638BDF007E69CD /* TopNewsTableViewCell.swift */,
+				45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		45A79C072764EBC300303D64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		45D86CD1276336BD00D92E9B /* Services */ = {
@@ -253,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				452C4E3F27639012007E69CD /* UIImageView+Ext.swift in Sources */,
+				45A79C0B2764ED0300303D64 /* MainNewsCollectionViewCell.swift in Sources */,
 				450227992762AC9100A1E75C /* Persistance.swift in Sources */,
 				452C4E4127639140007E69CD /* DateFormatter+Ext.swift in Sources */,
 				452C4E3D27638C20007E69CD /* UIView+Ext.swift in Sources */,
@@ -264,6 +279,7 @@
 				450227952762A92800A1E75C /* TabBarViewController.swift in Sources */,
 				450227932762A8C400A1E75C /* APICaller.swift in Sources */,
 				450227972762A9E300A1E75C /* SettingsViewController.swift in Sources */,
+				45A79C092764EBFF00303D64 /* MainNewsCellViewModel.swift in Sources */,
 				45D86CD7276350D700D92E9B /* TopNewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 import Foundation
 
 struct SearchResponse: Codable {
+    let totalResults: Int
     let articles: [Article]
 }
 
