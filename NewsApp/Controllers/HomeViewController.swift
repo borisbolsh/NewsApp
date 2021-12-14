@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
         sections.append(.mainNews(viewModels: mainNews.compactMap({
             return MainNewsCellViewModel(
                 name: $0.title ?? "no title",
-                artworkURL: URL(string: $0.url ?? ""),
+                artworkURL: URL(string: $0.url),
                 numberOfTracks: $0.source?.name ?? "",
                 artistName: $0.author ?? "-"
             )
@@ -110,6 +110,7 @@ class HomeViewController: UIViewController {
     
 }
 
+// MARK: - UICollectionViewDelegate & UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -124,7 +125,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return sections.count
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let type = sections[indexPath.section]
         switch type {
@@ -192,63 +192,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             section.orthogonalScrollingBehavior = .groupPaging
             section.boundarySupplementaryItems = supplementaryViews
             return section
-//        case 1:
-//            // Item
-//            let item = NSCollectionLayoutItem(
-//                layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .absolute(200),
-//                    heightDimension: .absolute(200)
-//                )
-//            )
-//
-//            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-//
-//            let verticalGroup = NSCollectionLayoutGroup.vertical(
-//                layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .absolute(200),
-//                    heightDimension: .absolute(400)
-//                ),
-//                subitem: item,
-//                count: 2
-//            )
-//
-//            let horizontalGroup = NSCollectionLayoutGroup.horizontal(
-//                layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .absolute(200),
-//                    heightDimension: .absolute(400)
-//                ),
-//                subitem: verticalGroup,
-//                count: 1
-//            )
-//
-//            // Section
-//            let section = NSCollectionLayoutSection(group: horizontalGroup)
-//            section.orthogonalScrollingBehavior = .continuous
-//            section.boundarySupplementaryItems = supplementaryViews
-//            return section
-//        case 2:
-//            // Item
-//            let item = NSCollectionLayoutItem(
-//                layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .fractionalWidth(1.0),
-//                    heightDimension: .fractionalHeight(1.0)
-//                )
-//            )
-//
-//            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-//
-//            let group = NSCollectionLayoutGroup.vertical(
-//                layoutSize: NSCollectionLayoutSize(
-//                    widthDimension: .fractionalWidth(1),
-//                    heightDimension: .absolute(80)
-//                ),
-//                subitem: item,
-//                count: 1
-//            )
-//
-//            let section = NSCollectionLayoutSection(group: group)
-//            section.boundarySupplementaryItems = supplementaryViews
-//            return section
+
         default:
             // Item
             let item = NSCollectionLayoutItem(
