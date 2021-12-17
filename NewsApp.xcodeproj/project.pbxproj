@@ -16,12 +16,17 @@
 		450227952762A92800A1E75C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450227942762A92800A1E75C /* TabBarViewController.swift */; };
 		450227972762A9E300A1E75C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450227962762A9E200A1E75C /* SettingsViewController.swift */; };
 		450227992762AC9100A1E75C /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450227982762AC9100A1E75C /* Persistance.swift */; };
+		45165AD7276CE04500AC8FAC /* SportNewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45165AD6276CE04500AC8FAC /* SportNewsCellViewModel.swift */; };
+		45165AD9276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45165AD8276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift */; };
 		452C4E3B27638BDF007E69CD /* TopNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E3A27638BDF007E69CD /* TopNewsTableViewCell.swift */; };
 		452C4E3D27638C20007E69CD /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E3C27638C20007E69CD /* UIView+Ext.swift */; };
 		452C4E3F27639012007E69CD /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E3E27639012007E69CD /* UIImageView+Ext.swift */; };
 		452C4E4127639140007E69CD /* DateFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452C4E4027639140007E69CD /* DateFormatter+Ext.swift */; };
 		45A79C092764EBFF00303D64 /* MainNewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */; };
 		45A79C0B2764ED0300303D64 /* MainNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */; };
+		45D1E4CE276C893800ED3D6D /* TitleHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1E4CD276C893800ED3D6D /* TitleHeaderCollectionReusableView.swift */; };
+		45D1E4D0276C8C5A00ED3D6D /* BusinessNewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1E4CF276C8C5A00ED3D6D /* BusinessNewsCellViewModel.swift */; };
+		45D1E4D4276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D1E4D3276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift */; };
 		45D86CD427634E3100D92E9B /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D86CD327634E3100D92E9B /* SearchResponse.swift */; };
 		45D86CD7276350D700D92E9B /* TopNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D86CD6276350D700D92E9B /* TopNewsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,12 +43,17 @@
 		450227942762A92800A1E75C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		450227962762A9E200A1E75C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		450227982762AC9100A1E75C /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		45165AD6276CE04500AC8FAC /* SportNewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportNewsCellViewModel.swift; sourceTree = "<group>"; };
+		45165AD8276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		452C4E3A27638BDF007E69CD /* TopNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsTableViewCell.swift; sourceTree = "<group>"; };
 		452C4E3C27638C20007E69CD /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		452C4E3E27639012007E69CD /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		452C4E4027639140007E69CD /* DateFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Ext.swift"; sourceTree = "<group>"; };
 		45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsCellViewModel.swift; sourceTree = "<group>"; };
 		45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		45D1E4CD276C893800ED3D6D /* TitleHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		45D1E4CF276C8C5A00ED3D6D /* BusinessNewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessNewsCellViewModel.swift; sourceTree = "<group>"; };
+		45D1E4D3276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		45D86CD327634E3100D92E9B /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		45D86CD6276350D700D92E9B /* TopNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				452C4E3927638BAB007E69CD /* Cells */,
+				45D1E4CD276C893800ED3D6D /* TitleHeaderCollectionReusableView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -155,6 +166,8 @@
 		452C4E3927638BAB007E69CD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				45D1E4D3276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift */,
+				45165AD8276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift */,
 				452C4E3A27638BDF007E69CD /* TopNewsTableViewCell.swift */,
 				45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */,
 			);
@@ -165,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				45A79C082764EBFF00303D64 /* MainNewsCellViewModel.swift */,
+				45D1E4CF276C8C5A00ED3D6D /* BusinessNewsCellViewModel.swift */,
+				45165AD6276CE04500AC8FAC /* SportNewsCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -269,17 +284,22 @@
 				452C4E3F27639012007E69CD /* UIImageView+Ext.swift in Sources */,
 				45A79C0B2764ED0300303D64 /* MainNewsCollectionViewCell.swift in Sources */,
 				450227992762AC9100A1E75C /* Persistance.swift in Sources */,
+				45D1E4D0276C8C5A00ED3D6D /* BusinessNewsCellViewModel.swift in Sources */,
 				452C4E4127639140007E69CD /* DateFormatter+Ext.swift in Sources */,
 				452C4E3D27638C20007E69CD /* UIView+Ext.swift in Sources */,
 				4502277C27629B9900A1E75C /* HomeViewController.swift in Sources */,
 				4502277827629B9900A1E75C /* AppDelegate.swift in Sources */,
+				45165AD9276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift in Sources */,
+				45D1E4CE276C893800ED3D6D /* TitleHeaderCollectionReusableView.swift in Sources */,
 				4502277A27629B9900A1E75C /* SceneDelegate.swift in Sources */,
 				452C4E3B27638BDF007E69CD /* TopNewsTableViewCell.swift in Sources */,
 				45D86CD427634E3100D92E9B /* SearchResponse.swift in Sources */,
 				450227952762A92800A1E75C /* TabBarViewController.swift in Sources */,
+				45165AD7276CE04500AC8FAC /* SportNewsCellViewModel.swift in Sources */,
 				450227932762A8C400A1E75C /* APICaller.swift in Sources */,
 				450227972762A9E300A1E75C /* SettingsViewController.swift in Sources */,
 				45A79C092764EBFF00303D64 /* MainNewsCellViewModel.swift in Sources */,
+				45D1E4D4276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift in Sources */,
 				45D86CD7276350D700D92E9B /* TopNewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

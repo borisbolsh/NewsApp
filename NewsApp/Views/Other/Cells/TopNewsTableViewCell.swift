@@ -70,7 +70,7 @@ class TopNewsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubviews(sourceLabel, headlineLabel, dateLabel, storyImageView)
- 
+        
     }
     
     required init?(coder: NSCoder) {
@@ -80,9 +80,10 @@ class TopNewsTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        
         let imageSize: CGFloat = contentView.height/1.4
         storyImageView.frame = CGRect(
-            x: contentView.width-imageSize-10,
+            x: 16,
             y: (contentView.height-imageSize)/2,
             width: imageSize,
             height: imageSize
@@ -90,25 +91,28 @@ class TopNewsTableViewCell: UITableViewCell {
         
         let availableWidth: CGFloat = contentView.width - separatorInset.left - imageSize - 10
         dateLabel.frame = CGRect (
-            x: separatorInset.left,
+            x: storyImageView.right + 16,
             y: contentView.height-46,
-            width: availableWidth - 10,
+            width: availableWidth - 16,
             height: 40
         )
         
         sourceLabel.sizeToFit()
         sourceLabel.frame = CGRect(
-            x: separatorInset.left,
+            x: storyImageView.right + 16,
             y: 20,
-            width: availableWidth - 10,
+            width: availableWidth - 16,
             height: sourceLabel.height
         )
         
         headlineLabel.frame = CGRect(
-            x: separatorInset.left,
+            x: storyImageView.right + 16,
             y: sourceLabel.bottom + 5,
-            width: availableWidth - 10,
+            width: availableWidth - 16,
             height: contentView.height - sourceLabel.bottom - dateLabel.height - 10)
+        
+     
+        
     }
     
     override func prepareForReuse() {

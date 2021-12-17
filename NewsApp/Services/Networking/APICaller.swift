@@ -25,6 +25,17 @@ final class APICaller {
         case topNews = "top-headlines"
     }
     
+    enum newsCategory: String {
+        case main = "general"
+        case business
+        case health
+        case entertainment
+        case science
+        case sports
+        case technology
+        
+    }
+
     private enum APIError: Error {
         case noDataReturned
         case invalidURL
@@ -86,8 +97,12 @@ final class APICaller {
     
     func news(
         for type: Endpoint,
+        newsCategory: newsCategory?,
         completion: @escaping (Result<SearchResponse, Error>) -> Void
     ) {
+        
+        let param = getParams(for: newsCategory ?? .main)
+        
         switch type {
         case .search:
             let today = Date()
@@ -95,14 +110,17 @@ final class APICaller {
             request(
                 url: url(
                     for: .search,
-                       queryParams: [
-                        "category" : "general",
-                        "country" : "us",
-                        "pageSize" : "100",
-                        "sortBy": "publishedAt",
-                        "from" : DateFormatter.newsDateFormatter.string(from: oneMonthBack),
-                        "to": DateFormatter.newsDateFormatter.string(from: today)
-                       ]),
+                       queryParams:
+                           [
+                            "category" : "general",
+                            "country" : "us",
+                            "pageSize" : "100",
+                            "sortBy": "publishedAt",
+                            "from" : DateFormatter.newsDateFormatter.string(from: oneMonthBack),
+                            "to": DateFormatter.newsDateFormatter.string(from: today)
+                           ]
+                      
+                       ),
                 expecting: SearchResponse.self,
                 completion: completion
             )
@@ -110,17 +128,62 @@ final class APICaller {
             request(
                 url: url(
                     for: .topNews,
-                       queryParams: [
-                        "category" : "general",
-                        "country" : "us",
-                        "pageSize" : "50",
-                        "sortBy": "popularity"
-                       ]),
+                       queryParams: param),
                 expecting: SearchResponse.self,
                 completion: completion
             )
         }
         print(url)
+    }
+    
+    func getParams(for news: newsCategory) -> [String : String] {
+        switch news {
+        case .main:
+            return [
+             "category" : "general",
+             "country" : "us",
+             "pageSize" : "50",
+             "sortBy": "popularity"
+            ]
+        case .business:
+            return [
+             "category" : "general",
+             "country" : "us",
+             "pageSize" : "50",
+             "sortBy": "popularity"
+            ]
+        case .health:
+            return [
+             "category" : "general",
+             "country" : "us",
+             "pageSize" : "50",
+             "sortBy": "popularity"
+            ]
+        case .entertainment:
+            return [
+             "category" : "entertainment",
+             "country" : "us",
+             "pageSize" : "50"
+            ]
+        case .science:
+            return [
+             "category" : "science",
+             "country" : "us",
+             "pageSize" : "50"
+            ]
+        case .sports:
+            return [
+             "category" : "sports",
+             "country" : "us",
+             "pageSize" : "50"
+            ]
+        case .technology:
+            return [
+             "category" : "technology",
+             "country" : "us",
+             "pageSize" : "50",
+            ]
+        }
     }
     
     

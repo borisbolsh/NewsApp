@@ -43,7 +43,7 @@ class TopNewsViewController: UIViewController {
     }
     
     private func fetchNews() {
-        APICaller.shared.news(for: .topNews) { [weak self] result in
+        APICaller.shared.news(for: .topNews, newsCategory: .main) { [weak self] result in
             switch result {
             case .success(let stories):
                 DispatchQueue.main.async {

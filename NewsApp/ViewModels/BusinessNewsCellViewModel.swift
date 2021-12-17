@@ -1,13 +1,13 @@
 //
-//  MainNewsCellViewModel.swift
+//  MainNewsCellViewModel2.swift
 //  NewsApp
 //
-//  Created by Boris Bolshakov on 11.12.21.
+//  Created by Boris Bolshakov on 17.12.21.
 //
 
 import Foundation
 
-struct MainNewsCellViewModel {
+struct BusinessNewsCellViewModel {
     let name: URL?
     let artworkURL: URL?
     let numberOfTracks: String
