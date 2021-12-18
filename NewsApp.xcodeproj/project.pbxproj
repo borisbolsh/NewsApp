@@ -163,13 +163,21 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		451491D8276DB0BB004C11D1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */,
+				45D1E4D3276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift */,
+				45165AD8276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		452C4E3927638BAB007E69CD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				45D1E4D3276C8D7600ED3D6D /* BusinessNewsCollectionViewCell.swift */,
-				45165AD8276CE30A00AC8FAC /* SportNewsCollectionViewCell.swift */,
+				451491D8276DB0BB004C11D1 /* Home */,
 				452C4E3A27638BDF007E69CD /* TopNewsTableViewCell.swift */,
-				45A79C0A2764ED0300303D64 /* MainNewsCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

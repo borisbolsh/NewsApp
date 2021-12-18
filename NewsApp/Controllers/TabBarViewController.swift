@@ -17,14 +17,14 @@ class TabBarViewController: UITabBarController {
         let viewController2 = TopNewsViewController()
         let viewController3 = SettingsViewController()
         
-        viewController1.title = "Home"
+//        viewController1.title = ""
         viewController2.title = "Top News"
         viewController3.title = "Settings"
         
-        viewController1.navigationItem.largeTitleDisplayMode = .always
+        viewController1.navigationItem.largeTitleDisplayMode = .never
         viewController2.navigationItem.largeTitleDisplayMode = .always
         viewController3.navigationItem.largeTitleDisplayMode = .always
-        
+      
         let navigationController1 = UINavigationController(rootViewController: viewController1)
         let navigationController2 = UINavigationController(rootViewController: viewController2)
         let navigationController3 = UINavigationController(rootViewController: viewController3)

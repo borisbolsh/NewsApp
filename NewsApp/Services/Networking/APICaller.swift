@@ -147,17 +147,15 @@ final class APICaller {
             ]
         case .business:
             return [
-             "category" : "general",
+             "category" : "business",
              "country" : "us",
-             "pageSize" : "50",
-             "sortBy": "popularity"
+             "pageSize" : "50"
             ]
         case .health:
             return [
-             "category" : "general",
+             "category" : "health",
              "country" : "us",
-             "pageSize" : "50",
-             "sortBy": "popularity"
+             "pageSize" : "50"
             ]
         case .entertainment:
             return [

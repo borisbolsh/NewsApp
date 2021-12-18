@@ -8,8 +8,8 @@
 import Foundation
 
 struct SportNewsCellViewModel {
-    let name: URL?
-    let artworkURL: URL?
-    let numberOfTracks: String
-    let artistName: String
+    let title: String?
+    let imageURL: URL?
+    let source: String
+    let newsURL: URL?
 }

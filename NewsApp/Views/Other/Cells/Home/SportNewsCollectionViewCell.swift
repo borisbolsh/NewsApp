@@ -11,22 +11,23 @@ class SportNewsCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "SportNewsCollectionViewCell"
     
-    private let albumCoverImageView: UIImageView = {
+    private let newsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "photo")
+        imageView.backgroundColor = .secondaryLabel
         imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
-    private let trackNameLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
     
-    private let artistNameLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 15, weight: .thin)
@@ -35,12 +36,12 @@ class SportNewsCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .secondarySystemBackground
         contentView.backgroundColor = .secondarySystemBackground
-        contentView.addSubview(albumCoverImageView)
-        contentView.addSubview(trackNameLabel)
-        contentView.addSubview(artistNameLabel)
+        contentView.addSubview(newsImageView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(descriptionLabel)
         contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 16
     }
     
     required init?(coder: NSCoder) {
@@ -50,37 +51,37 @@ class SportNewsCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        albumCoverImageView.frame = CGRect(
+        newsImageView.frame = CGRect(
             x: 0,
             y: 0,
             width: contentView.height,
             height: contentView.height
         )
-        trackNameLabel.frame = CGRect(
-            x: albumCoverImageView.right+10,
-            y: 0,
-            width: contentView.width-albumCoverImageView.right-15,
+        titleLabel.frame = CGRect(
+            x: newsImageView.right + 10,
+            y: 8,
+            width: contentView.width - newsImageView.width - 20,
             height: contentView.height/2
         )
-        artistNameLabel.frame = CGRect(
-            x: albumCoverImageView.right+10,
-            y: contentView.height/2,
-            width: contentView.width-albumCoverImageView.right-15,
-            height: contentView.height/2
+        descriptionLabel.frame = CGRect(
+            x: newsImageView.right + 10,
+            y: titleLabel.bottom + 10,
+            width: contentView.width - newsImageView.width - 20,
+            height: contentView.height/3
         )
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        trackNameLabel.text = nil
-        albumCoverImageView.image = nil
-        artistNameLabel.text = nil
+        titleLabel.text = nil
+        newsImageView.image = nil
+        descriptionLabel.text = nil
     }
     
     func configure(with viewModel: SportNewsCellViewModel) {
-        trackNameLabel.text = viewModel.artistName
-        albumCoverImageView.setImage(with: viewModel.name)
-        artistNameLabel.text = viewModel.artistName
+        titleLabel.text = viewModel.title
+        newsImageView.setImage(with: viewModel.imageURL)
+        descriptionLabel.text = viewModel.source
     }
     
 }

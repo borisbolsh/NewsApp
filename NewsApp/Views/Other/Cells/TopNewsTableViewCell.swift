@@ -60,7 +60,7 @@ class TopNewsTableViewCell: UITableViewCell {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 6
-        imageView.backgroundColor = .tertiarySystemBackground
+        imageView.backgroundColor = .secondaryLabel
         return imageView
     }()
     

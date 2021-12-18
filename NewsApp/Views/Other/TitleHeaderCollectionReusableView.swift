@@ -14,7 +14,7 @@ class TitleHeaderCollectionReusableView: UICollectionReusableView {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 22, weight: .regular)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         return label
     }()
     
@@ -30,7 +30,7 @@ class TitleHeaderCollectionReusableView: UICollectionReusableView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        label.frame = CGRect(x: 15, y: 0, width: width-30, height: height)
+        label.frame = CGRect(x: 0, y: 0, width: width-30, height: height)
     }
     
     func configure(with title: String) {

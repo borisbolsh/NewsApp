@@ -162,28 +162,29 @@ class HomeViewController: UIViewController {
         
         sections.append(.mainNews(viewModels: mainNews.compactMap({
             return MainNewsCellViewModel(
-                name: URL(string: $0.urlToImage ?? "") ,
-                artworkURL: URL(string: $0.url),
-                numberOfTracks: $0.source?.name ?? "",
-                artistName: $0.author ?? "-"
+                title: $0.title ?? "",
+                imageURL: URL(string: $0.urlToImage ?? ""),
+                source: $0.source?.name ?? "",
+                newsURL: URL(string: $0.url),
+                date: DateFormatter.changeDateFormat(from: $0.publishedAt ?? "no date")
             )
         })))
         
         sections.append(.businessNews(viewModels: businessNews.compactMap({
             return BusinessNewsCellViewModel(
-                name: URL(string: $0.urlToImage ?? "") ,
-                artworkURL: URL(string: $0.url),
-                numberOfTracks: $0.source?.name ?? "",
-                artistName: $0.author ?? "-"
+                title: $0.title ?? "",
+                imageURL: URL(string: $0.urlToImage ?? ""),
+                source: $0.source?.name ?? "",
+                newsURL: URL(string: $0.url) 
             )
         })))
         
         sections.append(.sportNews(viewModels: sportNews.compactMap({
             return SportNewsCellViewModel(
-                name: URL(string: $0.urlToImage ?? "") ,
-                artworkURL: URL(string: $0.url),
-                numberOfTracks: $0.source?.name ?? "",
-                artistName: $0.author ?? "-"
+                title: $0.title ?? "",
+                imageURL: URL(string: $0.urlToImage ?? ""),
+                source: $0.source?.name ?? "",
+                newsURL: URL(string: $0.url) 
             )
         })))
         
@@ -234,7 +235,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             ) as? BusinessNewsCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: viewModels[indexPath.row])
+            let viewModel = viewModels[indexPath.row]
+            cell.configure(with: viewModel)
             return cell
             
         case .sportNews(let viewModels):
@@ -244,13 +246,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             ) as? SportNewsCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.configure(with: viewModels[indexPath.row])
+            let viewModel = viewModels[indexPath.row]
+            cell.configure(with: viewModel)
             return cell
             
         }
     }
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
@@ -270,7 +272,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(50)
+                    heightDimension: .absolute(60)
                 ),
                 elementKind: UICollectionView.elementKindSectionHeader,
                 alignment: .top
@@ -293,7 +295,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .absolute(390)
+                    heightDimension: .absolute(360)
                 ),
                 subitem: item,
                 count: 1
@@ -302,7 +304,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let horizontalGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(0.9),
-                    heightDimension: .absolute(390)
+                    heightDimension: .absolute(360)
                 ),
                 subitem: verticalGroup,
                 count: 1
@@ -312,13 +314,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let section = NSCollectionLayoutSection(group: horizontalGroup)
             section.orthogonalScrollingBehavior = .groupPaging
             section.boundarySupplementaryItems = supplementaryViews
+            section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 0)
             return section
         case 1:
             // Item
             let item = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .absolute(200),
-                    heightDimension: .absolute(200)
+                    heightDimension: .absolute(240)
                 )
             )
 
@@ -327,16 +330,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .absolute(200),
-                    heightDimension: .absolute(400)
+                    heightDimension: .absolute(240)
                 ),
                 subitem: item,
-                count: 2
+                count: 1
             )
 
             let horizontalGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .absolute(200),
-                    heightDimension: .absolute(400)
+                    heightDimension: .absolute(240)
                 ),
                 subitem: verticalGroup,
                 count: 1
@@ -346,6 +349,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let section = NSCollectionLayoutSection(group: horizontalGroup)
             section.orthogonalScrollingBehavior = .continuous
             section.boundarySupplementaryItems = supplementaryViews
+            section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 0)
             return section
         
         case 2:
@@ -357,12 +361,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 )
             )
 
-            item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 2, bottom: 4, trailing: 2)
 
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
-                    heightDimension: .absolute(80)
+                    heightDimension: .absolute(100)
                 ),
                 subitem: item,
                 count: 1
@@ -370,6 +374,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
             let section = NSCollectionLayoutSection(group: group)
             section.boundarySupplementaryItems = supplementaryViews
+            section.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
             return section
             
         default:
